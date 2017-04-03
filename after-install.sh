@@ -42,10 +42,8 @@ sudo curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
 
 # install virtualhost script
-cd /usr/local/bin
-sudo wget -O virtualhost https://raw.githubusercontent.com/RoverWire/virtualhost/master/virtualhost.sh
-sudo chmod +x virtualhost
-cd ~/
+sudo chmod +x virtualhost.sh
+sudo mv virtualhost.sh /usr/local/bin/
 
 # make virtual host 
 read -p "Please enter your Virtualhost name (example.dev)  : " name
@@ -66,3 +64,13 @@ echo "#==============================================================#"
 echo "#                      TIME FOR A REBOOT!                      #"
 echo "#==============================================================#"
 echo ""
+echo ""
+echo -e $"do you want to Rebooot system ? (y/n)"
+			read question
+
+			if [ "$question" == 'y' -o "$question" == 'Y' ]; then
+				### reboot
+				reboot
+			else
+				echo -echo "### _H A V E_ _A_  _N I C E_  _D A Y_ ###"
+			fi
