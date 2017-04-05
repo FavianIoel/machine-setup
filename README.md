@@ -1,5 +1,5 @@
-XENIAL AFTER INSTALL
-====================
+Machine Web Dev Setup
+=====================
 
 I made this script after I noticed I spent a lot of time installing tools
 after a new Ubuntu installation , Xenial 16 has some new stuff so the old 
