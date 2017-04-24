@@ -66,11 +66,11 @@ echo "#==============================================================#"
 echo ""
 echo ""
 echo -e $"do you want to Rebooot system ? (y/n)"
-			read question
+read question
 
-			if [ "$question" == 'y' -o "$question" == 'Y' ]; then
-				### reboot
-				reboot
-			else
-				echo -echo "### _H A V E_ _A_  _N I C E_  _D A Y_ ###"
-			fi
+if [ "$question" == 'y' -o "$question" == 'Y' ]; then
+	### reboot
+	reboot
+else
+	echo  "### _H A V E_ _A_  _N I C E_  _D A Y_ ###"
+fi
