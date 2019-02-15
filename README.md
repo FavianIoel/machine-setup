@@ -1,4 +1,4 @@
-Machine Web Dev Setup
+Machine Web Dev Setup  ⛔️ DEPRECATED 
 =====================
 
 I made this script after I noticed I spent a lot of time installing tools
