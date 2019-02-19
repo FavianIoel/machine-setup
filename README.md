@@ -1,10 +1,5 @@
 Machine Web Dev Setup 
 =====================
-⛔️ DEPRECATED - you can still use it as a startpoint but be shure to check the repos.
-
-I made this script after I noticed I spent a lot of time installing tools
-after a new Ubuntu installation , Xenial 16 has some new stuff so the old 
-ways to configure mysql and PHP are not quite valid this time .
 
 With this script I have a machine ready to work within about 30 minutes 
 (with the installation of OS included)

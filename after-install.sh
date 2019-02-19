@@ -2,10 +2,11 @@
 
 echo "Hi $USER"
 
-# add repos
-sudo add-apt-repository -y ppa:webupd8team/sublime-text-2
-sudo add-apt-repository -y ppa:webupd8team/java
-sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+# add repos and keys
+wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+sudo apt-add-repository "deb https://download.sublimetext.com/ apt/stable/"
+#sudo add-apt-repository -y ppa:webupd8team/java
+#sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
 
 # basic update
 sudo apt-get -y --force-yes update
@@ -14,18 +15,20 @@ sudo apt-get -y --force-yes upgrade
 # install apps
 sudo apt -y install \
     sublime-text git \
-    terminator \
+    git-flow  snap \
     oracle-java7-installer \
     oracle-java7-set-default curl \
-    ubuntu-wallpapers* nodejs-legacy ruby-dev \
-    apache2 mysql-server mysql-client \
-    php7.0-mysql php7.0-curl php7.0-json php7.0-cgi \
-    php7.0 libapache2-mod-php7.0 php7.0* \
-    phpmyadmin php-mbstring php7.0-mbstring php-gettext \
-    mysql-workbench  python3-pip 
+    nodejs-legacy ruby-full \
+    apache2 mysql-server mysql_secure_installation \
+    php libapache2-mod-php php-mysql php-cli phpmyadmin python3-pip 
+
+sudo snap  install skype --classic
+sudo snap  install mailspring --classic
+
+#allow incoming HTTP and HTTPS traffic for this profile:
+sudo ufw allow in "Apache Full"
 
 # gems installs
-sudo gem install sass
 sudo gem install compass
 
 # phpmyadmin fix
@@ -35,25 +38,25 @@ echo -e "\n Include /etc/phpmyadmin/apache.conf" | sudo tee -a /etc/apache2/apac
 sudo /etc/init.d/apache2 restart
 
 # Unistall buggy package PHP
-sudo apt-get remove php7.0-snmp
+#sudo apt-get remove php7.0-snmp
 
 # install Composer
 sudo curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
 
 # install virtualhost script
-sudo chmod +x virtualhost.sh
-sudo mv virtualhost.sh /usr/local/bin/
+#sudo chmod +x virtualhost.sh
+#sudo mv virtualhost.sh /usr/local/bin/
 
 # make virtual host 
-read -p "Please enter your Virtualhost name (example.dev)  : " name
-echo ""
-sudo virtualhost create $name
+#read -p "Please enter your Virtualhost name (example.dev)  : " name
+#echo ""
+#sudo virtualhost create $name
 
-# folders
-sudo rm -rf ~/Public
-sudo rm -rf ~/Templates
-sudo rm -rf /var/www/html
+# remove and folders
+#sudo rm -rf ~/Public
+#sudo rm -rf ~/Templates
+#sudo rm -rf /var/www/html
 sudo rm ~/examples.desktop
 
 
