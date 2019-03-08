@@ -10,7 +10,7 @@ owner=$(who am i | awk '{print $1}')
 email='webmaster@localhost'
 sitesEnable='/etc/apache2/sites-enabled/'
 sitesAvailable='/etc/apache2/sites-available/'
-userDir='/var/www/'
+userDir='/home/favian.poputa/github-repos/'
 sitesAvailabledomain=$sitesAvailable$domain.conf
 
 ### don't modify from here unless you know what you are doing ####
@@ -54,9 +54,9 @@ if [ "$action" == 'create' ]
 		### check if directory exists or not
 		if ! [ -d $rootDir ]; then
 			### create the directory
-			mkdir $rootDir
+			mkdir -p $rootDir
 			### give permission to root dir
-			chmod 755 $rootDir
+			chmod 755 -R $rootDir
 			### write test file in the new domain dir
 			if ! echo "<?php echo phpinfo(); ?>" > $rootDir/phpinfo.php
 			then
