@@ -10,7 +10,7 @@ owner=$(who am i | awk '{print $1}')
 email='webmaster@localhost'
 sitesEnable='/etc/apache2/sites-enabled/'
 sitesAvailable='/etc/apache2/sites-available/'
-userDir='/home/favian.poputa/github-repos/'
+userDir='/home/shaback/'
 sitesAvailabledomain=$sitesAvailable$domain.conf
 
 ### don't modify from here unless you know what you are doing ####
@@ -74,9 +74,6 @@ if [ "$action" == 'create' ]
 			ServerName $domain
 			ServerAlias $domain
 			DocumentRoot $rootDir
-			<Directory />
-				AllowOverride All
-			</Directory>
 			<Directory $rootDir>
 				Options Indexes FollowSymLinks MultiViews
 				AllowOverride all
